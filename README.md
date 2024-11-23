@@ -22,7 +22,7 @@ Sammie Srabani, Neha Korrapati, Leela Josna Kona, Devangi Samal
 
 ## Libraries Used
 * [Streamlit](https://www.streamlit.io)
-* [Plotly](https://plotly.com/): Plotly chart module used to draw Violin Plot, (`streamlit.plotly_chart`)
+* [Plotly](https://plotly.com/): (`streamlit.plotly_chart`)
 
 ## Reports
 
