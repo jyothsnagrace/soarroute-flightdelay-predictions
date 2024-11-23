@@ -1,24 +1,15 @@
 kramdown:
   input: Kramdown
 
-/* div.css-1r6slb0.e1tzin5v2 {
-    background-color: #EEEEEE;
-    border: 2px solid #CCCCCC;
-    padding: 5% 5% 5% 10%;
-    border-radius: 5px;
-} */
-
-/* [theme]
-primaryColor="teal"
-backgroundColor="##85b2be"
-secondaryBackgroundColor="##5bafc0"
-textColor="teal"
-font="sans serif" */
-
-
 div.st-emotion-cache-j7qwjs {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     /* color: #eb9234; */
+}
+
+div.st-emotion-cache-1q7spjk {
+    font-size: 16px;
+    float: right;
+    font-family: cursive;  
 }
 
 div.st-emotion-cache-17lntkn{
@@ -58,15 +49,6 @@ div.stHeadingContainer {
     padding-top: 15px;
     padding-bottom: 15px;
 }
-
-/* div.st-emotion-cache-16idsys {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font:bolder;
-    /* color: green;  #eb9234 
-    font-size: 20px;
-    padding: 0,10px,10px,10px;
-   font-weight: bolder;  */
-} */
 
 div.stMarkdown [data-testid="stMarkdownContainer"] { 
     color: teal;
