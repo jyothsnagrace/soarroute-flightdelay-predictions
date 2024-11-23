@@ -4,3 +4,6 @@ altair==5.2.0
 functions==0.7.0
 plotly==5.18.0
 matplotlib==3.8.2
+scikit-learn
+statsmodels
+seaborn

@@ -6,7 +6,7 @@ import pandas as pd
 import plotly.express as px
 import altair as alt, os
 import matplotlib.pyplot as plt
-from vega_datasets import data
+# from vega_datasets import data
 from datetime import date, timedelta
 
 
@@ -20,10 +20,12 @@ def main():
     with open('lib/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     
+ 
+    
     ### Data Source
     st.markdown('''
         * :gray[**Data Source:** Bureau of Transportation Statistics bts.gov]
-        * :gray[**Date Range:** 2020/01/01 to 2022/12/01]
+        * :gray[**Date Range:** 06/01/2024 to 06/30/2024]
         ''')
     
     ### Load Data

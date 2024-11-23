@@ -21,4 +21,11 @@ def page_config():
 @st.cache_resource
 def load_data():
     df = pd.read_csv("data/T_ONTIME_REPORTING.csv")
+
+    # main_table = pd.read_csv("data/T_ONTIME_REPORTING.csv")
+    # lookup_table = pd.read_csv("data/lookup_tables/L_AIRLINE_ID.csv")
+    # df = pd.merge(main_table, lookup_table, left_on='OP_CARRIER_AIRLINE_ID', right_on='Code', how='inner')
+    df = df.rename(columns={'OP_CARRIER_AIRLINE_ID': 'CARRIER'})
+
+
     return df
