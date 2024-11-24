@@ -22,7 +22,7 @@ def preprocess_data(data):
     # Create target variable
     data['DELAY_REASON'] = np.where(data['WEATHER_DELAY'] > 0, 'Weather', 
                           np.where(data['DEP_DELAY'] > 15, 'Carrier', 'Other'))
-    st.write(data.head(500))
+    st.write(data.head())
 
     data = data.drop(['WEATHER_DELAY'], axis=1)
     # st.write(data.head(500))
