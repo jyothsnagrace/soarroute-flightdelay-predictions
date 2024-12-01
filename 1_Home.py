@@ -1,5 +1,5 @@
 import streamlit as st
-from lib.functions import load_data, page_config
+from lib.functions import page_config
 
 APP_TITLE = 'Soarroute Inc: Predictions Of Flight Delays'
 APP_SUB_TITLE = 'Authors: Sammie Srabani, Neha Korrapati, Leela Josna Kona, Devangi Samal'
