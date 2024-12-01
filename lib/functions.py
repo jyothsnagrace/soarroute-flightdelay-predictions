@@ -9,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 import altair as alt
 
 def page_config():
-    APP_TITLE = ':green[Soarroute Inc] Predictions Of Flight Delays'
+    APP_TITLE = ':green[Soarroute Inc] Flight Delay Predictions'
     APP_SUB_TITLE = 'Authors: Neha Korrapati, Leela Josna Kona, Sammie Srabani, Devangi Samal'
 
     st.set_option('deprecation.showPyplotGlobalUse', False)

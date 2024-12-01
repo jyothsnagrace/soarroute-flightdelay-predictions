@@ -44,12 +44,15 @@ def main():
     with tab2:
         st.subheader("Decision Tree Classification Report:")
         st.write(f"Decision Tree Accuracy: {dt_acc:.2f}")
-        st.text(classification_report(y_test, dt_pred))
+        # st.text(classification_report(y_test, dt_pred, target_names=le.classes_))
+        st.dataframe(pd.DataFrame(classification_report(y_test, dt_pred, target_names=le.classes_, output_dict=True)).transpose())
 
     with tab3:
         st.subheader("KNN Classification Report:")
         st.write(f"KNN Accuracy: {knn_acc:.2f}")
-        st.text(classification_report(y_test, knn_pred))
+        # st.text(classification_report(y_test, knn_pred, target_names=le.classes_))
+        st.dataframe(pd.DataFrame(classification_report(y_test, knn_pred, target_names=le.classes_, output_dict=True)).transpose())
+
 
     with tab4:
         st.subheader("Flight Delay Reasons Distribution")
