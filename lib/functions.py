@@ -7,6 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.preprocessing import LabelEncoder
 import altair as alt
+import plotly.express as px
 
 def page_config():
     APP_TITLE = ':green[Soarroute Inc] Flight Delay Predictions'
@@ -26,21 +27,46 @@ def load_data():
     df = df.rename(columns={'OP_CARRIER_AIRLINE_ID': 'CARRIER'})
     return df
 
+def get_correlation_matrix(data):
+    delay_columns = ['DEP_DELAY', 'ARR_DELAY', 'CARRIER_DELAY', 
+                     'WEATHER_DELAY', 'NAS_DELAY', 'SECURITY_DELAY', 'LATE_AIRCRAFT_DELAY']
+    delay_data = data[delay_columns].dropna()
+    correlation_matrix = delay_data.corr().reset_index().melt('index')
+    correlation_matrix.columns = ['Variable 1', 'Variable 2', 'Correlation']
+    return correlation_matrix
+
+
+def plot_heatmap(correlation_matrix):
+    heatmap = alt.Chart(correlation_matrix).mark_rect().encode(
+        x='Variable 1:O',
+        y='Variable 2:O',
+        color=alt.Color('Correlation:Q', scale=alt.Scale(scheme='yellowgreenblue', domainMid=0)),
+        tooltip=['Variable 1', 'Variable 2', 'Correlation']
+    ).properties(
+        width=500,
+        height=500
+    )
+    return heatmap
+
+def plot_bar_chart(data):
+    avg_delay_by_origin = data.groupby('ORIGIN')['ARR_DELAY'].mean().reset_index()
+    top_10_avg_delay = avg_delay_by_origin.nlargest(10, 'ARR_DELAY')
+    bar_plot = px.bar(top_10_avg_delay, x='ORIGIN', y='ARR_DELAY', color='ARR_DELAY',  color_continuous_scale='tealgrn'
+                      )
+    bar_plot.update_layout(xaxis_title='Origin Airport', yaxis_title='Average Arrival Delay')
+    return bar_plot
+
+#################################################
 
 # Preprocess the data
 def preprocess_data(data):
-
-    # columns_to_use = ["ORIGIN", "DEST", "CARRIER", "DEP_DELAY", "ARR_DELAY", "WEATHER_DELAY", "CARRIER_DELAY", "NAS_DELAY"]
-    # data = data[columns_to_use].dropna()
-    # st.write(data.head())
-
     data = data.rename(columns={'CARRIER_DELAY': 'CARRIER DELAY', 'WEATHER_DELAY': 'WEATHER DELAY', 'NAS_DELAY': 'NAS DELAY', 
                                 'SECURITY_DELAY': 'SECURITY DELAY', 'LATE_AIRCRAFT_DELAY':'LATE AIRCRAFT DELAY'})
-
-    
+   
     delay_columns = [
         'CARRIER DELAY', 'WEATHER DELAY', 'NAS DELAY', 'SECURITY DELAY', 'LATE AIRCRAFT DELAY'
     ]
+
     data['DELAY_REASON'] = data[delay_columns].idxmax(axis=1)
     data['DELAY_REASON'] = data['DELAY_REASON'].fillna('NO_DELAY')
     X = data[['DEP_DELAY', 'ARR_DELAY', 'TAXI_OUT', 'TAXI_IN']].fillna(0)
@@ -72,7 +98,7 @@ def train_models(X, y):
 def plot_results(df):
     base = alt.Chart(df).encode(
          theta=alt.Theta(field='Percentage (%)', type='quantitative'),
-         color=alt.Color(field='Reason', type='nominal').scale(scheme="lighttealblue"),
+         color=alt.Color(field='Reason', type='nominal').scale(scheme="yellowgreenblue"),
          tooltip=['Reason', 'Count', 
          alt.Tooltip('Percentage (%):Q', title='Percentage', format='.2f')]
          )

@@ -33,28 +33,28 @@ def main():
     dt_model, knn_model, dt_acc, knn_acc, y_test, dt_pred, knn_pred = train_models(X, y)
 
 
-    tab1, tab2, tab3, tab4 = st.tabs(["Dataset Preview", "Decision Tree Classification", "KNN Classification", "Delay Reasons Chart"])
+    tab1, tab2, tab3 = st.tabs(["Decision Tree Classification", "KNN Classification", "Delay Reasons Chart"])
 
-    with tab1:
-        st.subheader("Dataset Preview:")
-        st.write("Dataset Shape: ", data.shape)
-        st.write(data.head())
+    # with tab1:
+    #     st.subheader("Dataset Preview:")
+    #     st.write("Dataset Shape: ", data.shape)
+    #     st.write(data.head())
         
 
-    with tab2:
+    with tab1:
         st.subheader("Decision Tree Classification Report:")
         st.write(f"Decision Tree Accuracy: {dt_acc:.2f}")
         # st.text(classification_report(y_test, dt_pred, target_names=le.classes_))
         st.dataframe(pd.DataFrame(classification_report(y_test, dt_pred, target_names=le.classes_, output_dict=True)).transpose())
 
-    with tab3:
+    with tab2:
         st.subheader("KNN Classification Report:")
         st.write(f"KNN Accuracy: {knn_acc:.2f}")
         # st.text(classification_report(y_test, knn_pred, target_names=le.classes_))
         st.dataframe(pd.DataFrame(classification_report(y_test, knn_pred, target_names=le.classes_, output_dict=True)).transpose())
 
 
-    with tab4:
+    with tab3:
         st.subheader("Flight Delay Reasons Distribution")
         delay_reason_counts = pd.Series(le.inverse_transform(y)).value_counts().reset_index()
         delay_reason_counts.columns = ['Reason', 'Count']
