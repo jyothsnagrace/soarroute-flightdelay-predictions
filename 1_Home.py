@@ -18,7 +18,7 @@ def main():
     ### Data Source
     st.markdown('''
         :gray[A Streamlit App to analyze and predict the expected Flight Delays based on weather, airlines and flight origin-destination to improve the travel experience. These models help stakeholders make data-driven decisions, like optimizing schedules or managing airport resources.]
-        * :gray[**Libraries Used:** Streamlit, Pandas, Scikit-Learn, Plotly, Altair]
+        * :gray[**Libraries Used:** Streamlit, Pandas, Scikit-Learn, Plotly, Altair, Keras, TensorFlow]
         * :gray[**Data Source:** Bureau of Transportation Statistics bts.gov]
         ''')
     ### Banner
