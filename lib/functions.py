@@ -13,7 +13,7 @@ def page_config():
     APP_TITLE = ':green[Soarroute Inc] Flight Delay Predictions'
     APP_SUB_TITLE = 'Authors: Neha Korrapati, Leela Josna Kona, Sammie Srabani, Devangi Samal'
 
-    st.set_option('deprecation.showPyplotGlobalUse', False)
+    #st.set_option('deprecation.showPyplotGlobalUse', False)
     st.set_page_config(page_title=APP_TITLE, page_icon=":airplane_departure", layout="wide")
     st.title(f":satellite: {APP_TITLE} :airplane_departure:")
     st.caption(APP_SUB_TITLE)
@@ -92,7 +92,6 @@ def train_models(X, y):
     knn_model.fit(X_train, y_train)
     knn_pred = knn_model.predict(X_test)
     knn_acc = accuracy_score(y_test, knn_pred)
-    
     return dt_model, knn_model, dt_acc, knn_acc, y_test, dt_pred, knn_pred
 
 def plot_results(df):
@@ -111,3 +110,5 @@ def plot_results(df):
     #         )
             
     st.altair_chart(pie, use_container_width=True, theme="streamlit")
+
+

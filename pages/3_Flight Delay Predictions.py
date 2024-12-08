@@ -4,9 +4,13 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import classification_report, accuracy_score, log_loss
 import streamlit as st
 import altair as alt, os
+from sklearn.ensemble import RandomForestClassifier
+import matplotlib.pyplot as plt
+
+
 
 # Streamlit app
 def main():
@@ -31,26 +35,18 @@ def main():
     X, y, le = preprocess_data(data)
 
     dt_model, knn_model, dt_acc, knn_acc, y_test, dt_pred, knn_pred = train_models(X, y)
-
+    
 
     tab1, tab2, tab3 = st.tabs(["Decision Tree Classification", "KNN Classification", "Delay Reasons Chart"])
-
-    # with tab1:
-    #     st.subheader("Dataset Preview:")
-    #     st.write("Dataset Shape: ", data.shape)
-    #     st.write(data.head())
-        
 
     with tab1:
         st.subheader("Decision Tree Classification Report:")
         st.write(f"Decision Tree Accuracy: {dt_acc:.2f}")
-        # st.text(classification_report(y_test, dt_pred, target_names=le.classes_))
         st.dataframe(pd.DataFrame(classification_report(y_test, dt_pred, target_names=le.classes_, output_dict=True)).transpose())
 
     with tab2:
         st.subheader("KNN Classification Report:")
         st.write(f"KNN Accuracy: {knn_acc:.2f}")
-        # st.text(classification_report(y_test, knn_pred, target_names=le.classes_))
         st.dataframe(pd.DataFrame(classification_report(y_test, knn_pred, target_names=le.classes_, output_dict=True)).transpose())
 
 
@@ -69,8 +65,9 @@ def main():
 
         with col2:
             plot_results(delay_reason_counts)
-            
- 
+
+
+
 
 if __name__ == "__main__":
     main()
