@@ -34,10 +34,10 @@ def main():
     data = load_data()
     X, y, le = preprocess_data(data)
 
-    dt_model, knn_model, dt_acc, knn_acc, y_test, dt_pred, knn_pred = train_models(X, y)
+    dt_model, knn_model, y_test, dt_pred, knn_pred, dt_acc, knn_acc, chart, results = train_models(X, y)
     
 
-    tab1, tab2, tab3 = st.tabs(["Decision Tree Classification", "KNN Classification", "Delay Reasons Chart"])
+    tab1, tab2, tab3, tab4 = st.tabs(["Decision Tree Classification", "KNN Classification", "Delay Reasons Chart", "Log-Loss Comparision"])
 
     with tab1:
         st.subheader("Decision Tree Classification Report:")
@@ -66,7 +66,17 @@ def main():
         with col2:
             plot_results(delay_reason_counts)
 
+    with tab4:
+        st.subheader("Log-Loss Comparision")
+        
+        with st.container(border=True):
+            col1, col2 = st.columns(2)
+   
+        with col1:
+            st.write(results.head())
 
+        with col2:
+            st.altair_chart(chart, theme="streamlit")
 
 
 if __name__ == "__main__":

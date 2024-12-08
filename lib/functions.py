@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import classification_report, accuracy_score, log_loss
 from sklearn.preprocessing import LabelEncoder
 import altair as alt
 import plotly.express as px
@@ -85,14 +85,45 @@ def train_models(X, y):
     dt_model = DecisionTreeClassifier(random_state=42)
     dt_model.fit(X_train, y_train)
     dt_pred = dt_model.predict(X_test)
+    dt_proba = dt_model.predict_proba(X_test)
     dt_acc = accuracy_score(y_test, dt_pred)
+    dt_log_loss = log_loss(y_test, dt_proba)
+
 
     # KNN
     knn_model = KNeighborsClassifier(n_neighbors=5)
     knn_model.fit(X_train, y_train)
     knn_pred = knn_model.predict(X_test)
+    knn_proba = knn_model.predict_proba(X_test)
     knn_acc = accuracy_score(y_test, knn_pred)
-    return dt_model, knn_model, dt_acc, knn_acc, y_test, dt_pred, knn_pred
+    knn_log_loss = log_loss(y_test, knn_proba)
+
+
+# Log-loss and accuracy results
+    results = pd.DataFrame({
+        "Model": ["Decision Tree", "KNN"],
+        "Accuracy": [dt_acc, knn_acc],
+        "Log-Loss": [dt_log_loss, knn_log_loss]
+    })
+
+    # Generate chart
+    chart = alt.Chart(results).transform_fold(
+        fold=["Accuracy", "Log-Loss"],
+        as_=["Metric", "Value"]
+    ).mark_bar(size=30).encode(
+        x=alt.X("Model:N", title="Model"),
+        y=alt.Y("Value:Q", title="Score"),
+        color="Metric:N",
+        column="Metric:N"
+    ).properties( 
+                width=100
+                , height=150
+                ).configure_axis(
+        labelAngle=0
+    )
+
+    return dt_model, knn_model, y_test, dt_pred, knn_pred, dt_acc, knn_acc, chart, results
+
 
 def plot_results(df):
     base = alt.Chart(df).encode(
