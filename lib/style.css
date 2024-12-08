@@ -68,6 +68,8 @@ div.stHeadingContainer [data-testid="StyledLinkIconContainer"] {
 }
 
 .st-emotion-cache-12fmjuu {
-
     height: 1rem;
+}
+h1, h2 {
+    color: teal;
 }
