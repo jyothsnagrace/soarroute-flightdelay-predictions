@@ -9,8 +9,7 @@ import datetime
 import keras
 from joblib import Parallel, delayed 
 import joblib
-from skforecast.model_selection import grid_search_forecaster
-from skforecast.model_selection import backtesting_forecaster
+
 
 # Streamlit app
 def main():
@@ -57,8 +56,6 @@ def main():
     airlines = load_file('data/airline_list.csv')
     flight_info = load_file('data/flight_info.csv')
     ############################################
-
-    
     st.subheader("Enter Flight Information")
     
     col1, col2 = st.columns(2)
