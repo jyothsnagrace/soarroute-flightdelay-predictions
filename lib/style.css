@@ -13,7 +13,7 @@ div.st-emotion-cache-183lzff {
 
 }
 
-div.st-emotion-cache-1q7spjk {
+div.st-emotion-cache-1q7spjk, .stCaptionContainer {
     font-size: 16px;
     float: right;
     font-family: cursive;  
@@ -59,6 +59,7 @@ div.stHeadingContainer {
 
 div.stMarkdown [data-testid="stMarkdownContainer"] { 
     color: teal;
+    padding-bottom: 15px;
 }
 
 div.stHeadingContainer [data-testid="StyledLinkIconContainer"] { 
