@@ -25,7 +25,11 @@ Sammie Srabani, Neha Korrapati, Leela Josna Kona, Devangi Samal
 ## Libraries Used
 * [Streamlit](https://www.streamlit.io)
 * [Plotly](https://plotly.com/): (`streamlit.plotly_chart`)
+* Keras and TensorFlow
 
 ## Reports
 
 ## Future work
+* Predict avg duration of delay – Regression
+* Suggest alternative flights
+
