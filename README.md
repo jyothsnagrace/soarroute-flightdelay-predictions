@@ -4,7 +4,7 @@
 An Interactive Streamlit App Dashboard to analyze and predict the expected Flight Delays based on weather, airlines and flight origin-destination [Streamlit](https://www.streamlit.io) module to improve the travel experience. These models help stakeholders make data-driven decisions, like optimizing schedules or managing airport resources.
 You can try [here](https://soarroute-flightdelay-predictions.streamlit.app/).
 
-Data from the Bureau of Transportation Statistics (bts.gov) collected during Jan 2020 to Dec 2022, were analyzed to assess Flight Delay Predictions
+Data from the Bureau of Transportation Statistics (bts.gov) collected during 01 June 2024 to 30 June 2024, were analyzed to assess Flight Delay Predictions
 
 
 ## Results:
