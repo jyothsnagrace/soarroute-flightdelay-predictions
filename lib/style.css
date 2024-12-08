@@ -1,6 +1,17 @@
 kramdown:
   input: Kramdown
 
+.st-emotion-cache-12fmjuu {
+    height: 1rem;
+}
+h1{
+    color: teal;
+}
+h3 {
+    color: teal;
+}
+
+
 div.st-emotion-cache-j7qwjs {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     /* color: #eb9234; */
@@ -13,11 +24,12 @@ div.st-emotion-cache-183lzff {
 
 }
 
-div.st-emotion-cache-1q7spjk {
-    font-size: 16px;
+/* div.st-emotion-cache-1q7spjk {
+    font-size: 12px;
     float: right;
     font-family: cursive;  
-}
+} 
+*/
 
 div.st-emotion-cache-17lntkn{
     color:#eb9234;
@@ -67,12 +79,3 @@ div.stHeadingContainer [data-testid="StyledLinkIconContainer"] {
     padding-bottom: 15px;
 }
 
-.st-emotion-cache-12fmjuu {
-    height: 1rem;
-}
-h1{
-    color: teal;
-}
-h3 {
-    color: teal;
-}
