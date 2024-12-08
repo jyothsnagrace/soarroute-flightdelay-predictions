@@ -12,7 +12,7 @@ Data from the Bureau of Transportation Statistics (bts.gov) collected during 01 
 * Neural Network to predict the Flight delay
 
 ## Authors
-Sammie Srabani, Neha Korrapati, Leela Josna Kona, Devangi Samal
+Neha Korrapati, Leela Josna Kona, Devangi Samal, Sammie Srabani
 
 ## Objectives
 * Identify potential delay flights
