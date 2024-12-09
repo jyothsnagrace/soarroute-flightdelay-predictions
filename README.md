@@ -42,8 +42,8 @@ Neha Korrapati, Leela Josna Kona, Devangi Samal, Sammie Srabani
 ![bar](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/log_loss_comparision_chart.jpg)
 
 ### 4. Delay Predictor
-![bar](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/delay_predictor.jpg)
-
+![demo](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/delay_predictor.jpg)
+![demo](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/delay_predictor_demo.jpg)
 
 ## Future work
 * Predict avg duration of delay – Regression
