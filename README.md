@@ -12,7 +12,7 @@ Data from the Bureau of Transportation Statistics (bts.gov) collected during 01 
 * Neural Network to predict the Flight delay
 
 ## Authors
-Sammie Srabani, Neha Korrapati, Leela Josna Kona, Devangi Samal
+Neha Korrapati, Leela Josna Kona, Devangi Samal, Sammie Srabani
 
 ## Objectives
 * Identify potential delay flights
@@ -27,9 +27,24 @@ Sammie Srabani, Neha Korrapati, Leela Josna Kona, Devangi Samal
 * [Plotly](https://plotly.com/): (`streamlit.plotly_chart`)
 * Keras and TensorFlow
 
-## Reports
+## Snapshots
+### 1. Landing Page
+![Home](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/home_page.jpg)
+
+### 2. Exploratory Data Analysis
+![CH](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/correlation_heatmap.jpg)
+![Top10](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/top10_us_airports_avg_arr_delay.jpg)
+
+### 3. Flight Delay Predictions
+![DT](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/decision_tree_report.jpg)
+![KNN](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/knn_report.jpg)
+![pie](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/delay_reasons_chart.jpg)
+![bar](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/log_loss_comparision_chart.jpg)
+
+### 4. Delay Predictor
+![bar](https://github.com/jyothsnagrace/soarroute-flightdelay-predictions/blob/main/data/img/delay_predictor.jpg)
+
 
 ## Future work
 * Predict avg duration of delay – Regression
 * Suggest alternative flights
-
